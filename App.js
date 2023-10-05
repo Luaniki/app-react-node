@@ -1,22 +1,20 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomePage from './pages/HomePage';
-import StudentPage from './pages/Students';
-import CoursePage from './pages/Courses';
+import { NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomePage from './screens/HomePage';
+import Students from './screens/Students';
+import Courses from './screens/Courses';
 
-const Stack = createStackNavigator();
+const Menu = createNativeStackNavigator();
 
-const App = () => {
+export default function App (){
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomePage} />
-        <Stack.Screen name="Students" component={StudentPage} />
-        <Stack.Screen name="Courses" component={CoursePage} />
-      </Stack.Navigator>
+      <Menu.Navigator initialRouteName="Home">
+        <Menu.Screen name="Home" component={HomePage} />
+        <Menu.Screen name="Students" component={Students} />
+        <Menu.Screen name="Courses" component={Courses} />
+      </Menu.Navigator>
     </NavigationContainer>
   );
-};
-
-export default App;
+}

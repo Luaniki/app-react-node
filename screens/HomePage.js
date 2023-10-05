@@ -1,20 +1,24 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
-const HomePage = ({ navigation }) => {
+export default function HomePage({ navigation }){
+  const pressHandler = () => {
+    navigation.navigate('Students');
+  }
+
   return (
-    <View>
-      <Text>Selecciona una opción:</Text>
-      <Button
-        title="Ver Estudiantes"
-        onPress={() => navigation.navigate('Students')}
-      />
-      <Button
-        title="Ver Cursos"
-        onPress={() => navigation.navigate('Courses')}
-      />
+    <View style={styles.container}>
+      <Text>Bienvenido a Estudiantes</Text>
+      <Button title='Ir a Estudiantes' onPress={pressHandler}/>
     </View>
   );
-};
+}
 
-export default HomePage;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
