@@ -1,13 +1,14 @@
 import React from 'react';
-import { NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomePage from './screens/HomePage';
 import Students from './screens/Students';
 import Courses from './screens/Courses';
+import 'react-native-gesture-handler';
 
 const Menu = createNativeStackNavigator();
 
-export default function App (){
+export default function App() {
   return (
     <NavigationContainer>
       <Menu.Navigator initialRouteName="Home">
