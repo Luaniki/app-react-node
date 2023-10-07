@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 
 
@@ -11,7 +11,7 @@ export default function Students({ navigation }) {
             .then(response => response.json())
             .then(data => {
                 console.log('Datos recibidos', data);
-                setCursos(data);
+                setCursos(data.data);
             })
 
             .catch(error => {
@@ -26,6 +26,7 @@ export default function Students({ navigation }) {
         <View style={styles.container}>
             <Text>Bienvenido a Estudiantes</Text>
             <Button title='Ir a los cursos inscritos' onPress={pressHandler} />
+            {cursos.map(item=>(<>{item.nombre}</>))}
         </View>
     );
 }
