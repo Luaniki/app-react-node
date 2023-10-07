@@ -6,6 +6,7 @@ import Students from './screens/Students';
 import Courses from './screens/Courses';
 import 'react-native-gesture-handler';
 
+
 const Menu = createNativeStackNavigator();
 
 export default function App() {

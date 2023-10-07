@@ -1,7 +1,24 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 
+
 export default function Students({ navigation }) {
+
+    const [cursos, setCursos] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/api/v1/getPersonas')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Datos recibidos', data);
+                setCursos(data);
+            })
+
+            .catch(error => {
+                console.log('Error al obtener los datos', error);
+            });
+    }, []);
+
     const pressHandler = () => {
         navigation.navigate('Courses');
     }
