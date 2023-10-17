@@ -4,14 +4,14 @@ import { StyleSheet, View, Text, Button } from 'react-native';
 
 export default function Students({ navigation }) {
 
-    const [cursos, setCursos] = useState([]);
+    const [estudiantes, setEstudiantes] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3001/api/v1/getPersonas')
             .then(response => response.json())
             .then(data => {
                 console.log('Datos recibidos', data);
-                setCursos(data.data);
+                setEstudiantes(data.data);
             })
 
             .catch(error => {
@@ -26,7 +26,7 @@ export default function Students({ navigation }) {
         <View style={styles.container}>
             <Text>Bienvenido a Estudiantes</Text>
             <Button title='Ir a los cursos inscritos' onPress={pressHandler} />
-            {cursos.map(item=>(<>{item.nombre}</>))}
+            {estudiantes.map(item=>(<>{item.nombre}</>))}
         </View>
     );
 }
