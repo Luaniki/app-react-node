@@ -26,7 +26,7 @@ export default function Students({ navigation }) {
         <View style={styles.container}>
             <Text>Bienvenido a Estudiantes</Text>
             <Button title='Ir a los cursos inscritos' onPress={pressHandler} />
-            {estudiantes.map(item=>(<>{item.nombre}</>))}
+            {estudiantes.map((item,index)=>(<Text key={index+1}>{item.nombre}</Text>))}
         </View>
     );
 }
